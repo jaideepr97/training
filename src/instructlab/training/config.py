@@ -32,6 +32,10 @@ class DistributedTrainingBackend(Enum):
     FSDP: str = "fsdp"
     DEEPSPEED: str = "deepspeed"
 
+    @classmethod
+    def has_value(cls, value):
+        return value in cls._value2member_map_
+
 # public API
 class QuantizeDataType(Enum):
     """
