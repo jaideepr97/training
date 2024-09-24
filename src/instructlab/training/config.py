@@ -27,6 +27,10 @@ class DeepSpeedOffloadStrategy(Enum):
     # NVME = "nvme"
     NONE = None
 
+# public API
+class DistributedTrainingBackend(Enum):
+    FSDP: str = "fsdp"
+    DEEPSPEED: str = "deepspeed"
 
 # public API
 class QuantizeDataType(Enum):
@@ -170,6 +174,10 @@ class TrainingArgs(BaseModel):
         default_factory=lambda: FSDPOptions(
             cpu_offload_params=False
         )
+    )
+
+    distributed_training_backend: DistributedTrainingBackend = (
+        DistributedTrainingBackend.DEEPSPEED
     )
 
     disable_flash_attn: Optional[bool] = False
