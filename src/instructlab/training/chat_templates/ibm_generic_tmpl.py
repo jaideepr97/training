@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: Apache-2.0
 
-# First Party
-from instructlab.training.tokenizer_utils import SpecialTokens, TokenInfo
+# Third Party
+from .utils import SpecialTokens, TokenInfo
 
 SPECIAL_TOKENS = SpecialTokens(
     start_role=TokenInfo("<|start_of_role|>", add_to_tokenizer=True),
